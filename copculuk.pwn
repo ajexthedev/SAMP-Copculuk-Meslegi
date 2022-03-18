@@ -136,12 +136,12 @@ public OnPlayerExitVehicle(playerid, vehicleid)
 {
 	if(PlayerData[playerid][GarbageManDuty] == true)
 	{
-		if(GarbagePoints[playerid][0] == true && (!IsPlayerInRangeOfPoint(playerid, 15.0, GARBAGE_POINT_ONE_X, GARBAGE_POINT_ONE_Y, GARBAGE_POINT_ONE_Z)))
+		if(GarbagePoints[playerid][0] == true && !IsPlayerInRangeOfPoint(playerid, 15.0, GARBAGE_POINT_ONE_X, GARBAGE_POINT_ONE_Y, GARBAGE_POINT_ONE_Z))
 		{
 			new vehid = GetPlayerVehicleID(playerid);
 			SetVehicleToRespawn(vehid);
 		}
-		else if(GarbagePoints[playerid][1] == true && (!IsPlayerInRangeOfPoint(playerid, 15.0, GARBAGE_POINT_TWO_X, GARBAGE_POINT_TWO_Y, GARBAGE_POINT_TWO_Z)))
+		else if(GarbagePoints[playerid][1] == true && !IsPlayerInRangeOfPoint(playerid, 15.0, GARBAGE_POINT_TWO_X, GARBAGE_POINT_TWO_Y, GARBAGE_POINT_TWO_Z))
 		{
 			new vehid = GetPlayerVehicleID(playerid);
 			SetVehicleToRespawn(vehid);
