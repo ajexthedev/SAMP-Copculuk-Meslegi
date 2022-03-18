@@ -1,3 +1,5 @@
+#define FILTERSCRIPT
+
 #include <a_samp>
 #include <zcmd>
 #include <foreach>
@@ -37,16 +39,13 @@ new bool:GarbageEquipped[MAX_PLAYERS];
 #if defined FILTERSCRIPT
 
 #else
-
-main() {}
-
 #endif
 
 new GarbageTruck[2];
 
 new bool:GarbagePoints[MAX_PLAYERS][2];
  
-public OnGameModeInit()
+public OnFilterScriptInit()
 {
 	CreateDynamic3DTextLabel(GARBAGE_POINT_LABEL_TEXT, -1, GARBAGE_POINT_ONE_X, GARBAGE_POINT_ONE_Y, GARBAGE_POINT_ONE_Z, 15.0);
 
@@ -167,11 +166,11 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
     {
 		if(PlayerData[playerid][GarbageManDuty] == true)
 		{
-			if(GarbagePoints[playerid][0] == true && (IsPlayerInRangeOfPoint(playerid, 20.0, GARBAGE_POINT_ONE_X, GARBAGE_POINT_ONE_Y, GARBAGE_POINT_ONE_Z)))
+			if(GarbagePoints[playerid][0] == true && IsPlayerInRangeOfPoint(playerid, 20.0, GARBAGE_POINT_ONE_X, GARBAGE_POINT_ONE_Y, GARBAGE_POINT_ONE_Z))
 			{
 				GameTextForPlayer(playerid,"Noktaya ulastin!", 2000, 4);
 			}
-			else if(GarbagePoints[playerid][1] == true && (IsPlayerInRangeOfPoint(playerid, 20.0, GARBAGE_POINT_TWO_X, GARBAGE_POINT_TWO_Y, GARBAGE_POINT_TWO_Z)))
+			else if(GarbagePoints[playerid][1] == true && IsPlayerInRangeOfPoint(playerid, 20.0, GARBAGE_POINT_TWO_X, GARBAGE_POINT_TWO_Y, GARBAGE_POINT_TWO_Z))
 			{
 				GameTextForPlayer(playerid, "Noktaya ulastin!", 2000, 4);
 			}
